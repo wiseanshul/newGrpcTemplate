@@ -54,7 +54,7 @@ spec:
       name: Publish
       action: publish:github
       input:
-        sourcePath: ./app
+        sourcePath: ./app1
         allowedHosts: [ 'github.com' ]
         description: This is graphql
         repoUrl: ${{ parameters.repoUrl }}
