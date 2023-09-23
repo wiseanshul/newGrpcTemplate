@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.${{values.grpc_package_name}}.grpc";
+option java_package = "com.${{values.java_package_name_grpc}}.grpc";
 option java_outer_classname = "HelloProto";
 
 service HelloService {

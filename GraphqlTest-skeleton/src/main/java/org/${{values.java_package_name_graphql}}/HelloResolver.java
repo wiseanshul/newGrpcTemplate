@@ -1,4 +1,4 @@
-package org.${{values.java_package_name}};
+package org.${{values.java_package_name_graphql}};
 
 import com.example.grpc.HelloRequest;
 import com.example.grpc.HelloResponse;
