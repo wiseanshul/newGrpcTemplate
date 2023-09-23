@@ -1,0 +1,11 @@
+
+
+type Query{
+
+    fetchSomethingFromGrpc: String
+
+}
+
+
+
+

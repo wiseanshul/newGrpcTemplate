@@ -1,0 +1,96 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
+kind: Template
+metadata:
+  name: SpringbootGrpcAndGrphql
+  title: Sonar Project Custom Action Template
+  description: An example template for the scaffolder that creates a simple demo service
+  tags:
+    - java
+    - grpc
+    - graphql
+    - sonar
+
+spec:
+  owner: user:guest
+  type: service
+
+  parameters:
+
+    - title: Choose a location for graphql
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+    - title: Choose a location for grpc
+      required:
+        - repoUrl2
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  steps:
+
+    - id: template
+      name: Fetch Skeleton + Template of graphql
+      action: fetch:template
+      input:
+          url: ./GraphqlTest-skeleton
+          copyWithoutRender:
+            - .github/workflows/*
+            -
+    - id: template2
+      name: Fetch Skeleton + Template of grpc
+      action: fetch:template
+      input:
+        url: ./GrpcTest-skeleton
+        copyWithoutRender:
+          - .github/workflows/*
+          -
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: [ 'github.com' ]
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+
+    - id: publish2
+      name: Publish2
+      action: publish:github
+      input:
+        allowedHosts: [ 'github.com' ]
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl2 }}
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['publish2'].output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+
+
+
+
+
+
