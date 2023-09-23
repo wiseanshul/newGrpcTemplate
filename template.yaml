@@ -77,7 +77,7 @@ spec:
       input:
         allowedHosts: [ 'github.com' ]
         description: This is grpc
-        repoUrl2: ${{ parameters.repoUrl2 }}
+        repoUrl: ${{ parameters.repoUrl2 }}
 
 
     - id: register
