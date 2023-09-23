@@ -3,7 +3,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: SpringbootGrpcAndGrphql
-  title: Sonar Project Custom Action Template
+  title: grpc and graphql Project Custom Action Template
   description: An example template for the scaffolder that creates a simple demo service
   tags:
     - java
@@ -64,6 +64,7 @@ spec:
         repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
 
+
     - id: template2
       name: Fetch Skeleton + Template of grpc
       action: fetch:template
@@ -76,7 +77,7 @@ spec:
       input:
         allowedHosts: [ 'github.com' ]
         description: This is grpc
-        repoUrl: ${{ parameters.repoUrl2 }}
+        repoUrl2: ${{ parameters.repoUrl2 }}
 
 
     - id: register
