@@ -1,4 +1,4 @@
-package org.${{values.grpc_package_name}}.grpc;
+package org.${{values.java_package_name_grpc}}.grpc;
 
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;

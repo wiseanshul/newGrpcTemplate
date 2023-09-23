@@ -17,6 +17,66 @@ spec:
 
   parameters:
 
+    - title: Provide some simple information for graphql project
+      required:
+        - component_id_graphql
+        - java_package_name_graphql
+        - owner_graphql
+
+      properties:
+        component_id_graphql:
+          title: Name
+          type: string
+          description: Unique name of the component of graphql
+          ui:field: EntityNamePicker
+        java_package_name_graphql:
+          title: graphQL Java Package Name
+          type: string
+          description: Name for the java package. eg (io.backstage.blah)
+        description_graphql:
+          title: Description
+          type: string
+          description: Help others understand what this website is for.
+        owner_graphql:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+
+    - title: Provide some simple information for grpc project
+      required:
+        - component_id_grpc
+        - java_package_name_grpc
+        - owner_grpc
+
+      properties:
+        component_id_grpc:
+          title: Name
+          type: string
+          description: Unique name of the component of grpc project
+          ui:field: EntityNamePicker
+        java_package_name_grpc:
+          title: grpc Java Package Name
+          type: string
+          description: Name for the java package. eg (io.backstage.blah)
+        description_grpc:
+          title: Description
+          type: string
+          description: Help others understand what this website is for.
+        owner_grpc:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+
+
+
     - title: Choose a location for graphql
       required:
         - repoUrl
@@ -49,6 +109,13 @@ spec:
       input:
           url: ./GraphqlTest-skeleton
           targetPath: ./app1
+          copyWithoutRender:
+            - .github/workflows/*
+          values:
+            component_id_graphql: ${{ parameters.component_id_graphql }}
+            description_graphql: ${{ parameters.description_graphql }}
+            java_package_name_graphql: ${{ parameters.java_package_name_graphql }}
+            owner_grpc: ${{ parameters.owner_grpc }}
 
     - id: publish
       name: Publish
@@ -59,15 +126,19 @@ spec:
         description: This is graphql
         repoUrl: ${{ parameters.repoUrl }}
 
-
-
-
     - id: template2
       name: Fetch Skeleton + Template of grpc
       action: fetch:template
       input:
         url: ./GrpcTest-skeleton
         targetPath: ./app2
+        copyWithoutRender:
+          - .github/workflows/*
+        values:
+          component_id_grpc: ${{ parameters.component_id_grpc }}
+          description_grpc: ${{ parameters.description_grpc }}
+          java_package_name_grpc: ${{ parameters.java_package_name_grpc }}
+          owner_graphql: ${{ parameters.owner_graphql }}
 
     - id: publish2
       name: Publish2

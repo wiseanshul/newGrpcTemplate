@@ -1,4 +1,4 @@
-package org.${{values.java_package_name}};
+package org.${{values.java_package_name_graphql}};
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
