@@ -66,13 +66,13 @@ spec:
       input:
         url: ./GrpcTest-skeleton
 
-    - id: publish2
-      name: Publish2
-      action: publish:github
-      input:
-        allowedHosts: [ 'github.com' ]
-        description: This is grpc
-        repoUrl: ${{ parameters.repoUrl2 }}
+#    - id: publish2
+#      name: Publish2
+#      action: publish:github
+#      input:
+#        allowedHosts: [ 'github.com' ]
+#        description: This is grpc
+#        repoUrl: ${{ parameters.repoUrl2 }}
 
 
     - id: register
