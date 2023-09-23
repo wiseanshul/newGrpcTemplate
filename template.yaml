@@ -48,17 +48,15 @@ spec:
       action: fetch:template
       input:
           url: ./GraphqlTest-skeleton
-          copyWithoutRender:
-            - .github/workflows/*
-            -
+
+
     - id: template2
       name: Fetch Skeleton + Template of grpc
       action: fetch:template
       input:
         url: ./GrpcTest-skeleton
-        copyWithoutRender:
-          - .github/workflows/*
-          -
+
+
     - id: publish
       name: Publish
       action: publish:github
