@@ -49,29 +49,13 @@ spec:
       input:
           url: ./GraphqlTest-skeleton
 
-
-    - id: template2
-      name: Fetch Skeleton + Template of grpc
-      action: fetch:template
-      input:
-        url: ./GrpcTest-skeleton
-
-
     - id: publish
       name: Publish
       action: publish:github
       input:
         allowedHosts: [ 'github.com' ]
-        description: This is ${{ parameters.name }}
+        description: This is graphql
         repoUrl: ${{ parameters.repoUrl }}
-
-    - id: publish2
-      name: Publish2
-      action: publish:github
-      input:
-        allowedHosts: [ 'github.com' ]
-        description: This is ${{ parameters.name }}
-        repoUrl: ${{ parameters.repoUrl2 }}
 
     - id: register
       name: Register
@@ -79,6 +63,22 @@ spec:
       input:
         repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
+
+    - id: template2
+      name: Fetch Skeleton + Template of grpc
+      action: fetch:template
+      input:
+        url: ./GrpcTest-skeleton
+
+    - id: publish2
+      name: Publish2
+      action: publish:github
+      input:
+        allowedHosts: [ 'github.com' ]
+        description: This is grpc
+        repoUrl: ${{ parameters.repoUrl2 }}
+
+
     - id: register
       name: Register
       action: catalog:register
