@@ -48,11 +48,13 @@ spec:
       action: fetch:template
       input:
           url: ./GraphqlTest-skeleton
+          targetPath: ./app1
 
     - id: publish
       name: Publish
       action: publish:github
       input:
+        sourcePath: ./app
         allowedHosts: [ 'github.com' ]
         description: This is graphql
         repoUrl: ${{ parameters.repoUrl }}
@@ -65,12 +67,13 @@ spec:
       action: fetch:template
       input:
         url: ./GrpcTest-skeleton
+        targetPath: ./app2
 
     - id: publish2
       name: Publish2
       action: publish:github
       input:
-        sourcePath: ./GrpcTest-skeleton
+        sourcePath: ./app2
         allowedHosts: [ 'github.com' ]
         description: This is grpc
         repoUrl: ${{ parameters.repoUrl2 }}
