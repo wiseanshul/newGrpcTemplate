@@ -33,7 +33,7 @@ spec:
       required:
         - repoUrl2
       properties:
-        repoUrl:
+        repoUrl2:
           title: Repository Location
           type: string
           ui:field: RepoUrlPicker
