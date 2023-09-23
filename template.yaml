@@ -70,6 +70,7 @@ spec:
       name: Publish2
       action: publish:github
       input:
+        sourcePath: ./GrpcTest-skeleton
         allowedHosts: [ 'github.com' ]
         description: This is grpc
         repoUrl: ${{ parameters.repoUrl2 }}
