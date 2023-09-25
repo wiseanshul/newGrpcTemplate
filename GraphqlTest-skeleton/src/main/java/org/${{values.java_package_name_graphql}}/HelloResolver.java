@@ -1,8 +1,8 @@
 package org.${{values.java_package_name_graphql}};
 
-import com.example.grpc.HelloRequest;
-import com.example.grpc.HelloResponse;
-import com.example.grpc.HelloServiceGrpc;
+import com.${{values.java_package_name_grpc}}.grpc.HelloRequest;
+import com.${{values.java_package_name_grpc}}.grpc.HelloResponse;
+import com.${{values.java_package_name_grpc}}.grpc.HelloServiceGrpc;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
