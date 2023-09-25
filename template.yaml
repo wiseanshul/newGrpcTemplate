@@ -33,6 +33,10 @@ spec:
           title: graphQL Java Package Name
           type: string
           description: Name for the java package. eg (io.backstage.blah)
+        artifactId_graphql:
+          title: artifactId graphql project
+          type: string
+          description: enter artifactId for graphql project
         description_graphql:
           title: Description
           type: string
@@ -62,6 +66,10 @@ spec:
           title: grpc Java Package Name
           type: string
           description: Name for the java package. eg (io.backstage.blah)
+        artifactId_grpc:
+          title: artifactId grpc project
+          type: string
+          description: enter artifactId for grpc project
         description_grpc:
           title: Description
           type: string
@@ -116,6 +124,9 @@ spec:
             description_graphql: ${{ parameters.description_graphql }}
             java_package_name_graphql: ${{ parameters.java_package_name_graphql }}
             owner_grpc: ${{ parameters.owner_grpc }}
+            artifactId_graphql: ${{ parameters.artifactId_graphql }}
+            artifactId_grpc: ${{ parameters.artifactId_grpc }}
+            java_package_name_grpc: ${{ parameters.java_package_name_grpc }}
 
     - id: publish
       name: Publish
@@ -139,6 +150,7 @@ spec:
           description_grpc: ${{ parameters.description_grpc }}
           java_package_name_grpc: ${{ parameters.java_package_name_grpc }}
           owner_graphql: ${{ parameters.owner_graphql }}
+          artifactId_grpc: ${{ parameters.artifactId_grpc }}
 
     - id: publish2
       name: Publish2
